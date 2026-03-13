@@ -1,0 +1,348 @@
+:root {
+  color-scheme: light;
+  --bg: #e7e7e7;
+  --card: #f7f7f7;
+  --text: #111111;
+  --muted: #777777;
+  --line: #dedede;
+  --primary: #090c21;
+  --accent: #d2814d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page {
+  width: min(1100px, calc(100% - 2rem));
+}
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  min-height: 620px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card__left {
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.heading-group h1 {
+  margin: 0.4rem 0;
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+}
+
+.accent {
+  color: var(--accent);
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.heading-group p {
+  color: var(--muted);
+  max-width: 420px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.signup-form {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.signup-form label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.signup-form input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.7rem 0.8rem;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+.signup-form button {
+  margin-top: 0.5rem;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primary);
+  box-shadow: 0 10px 20px rgba(4, 8, 27, 0.28);
+  cursor: pointer;
+}
+
+.social-wrap {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.social-wrap p {
+  color: var(--muted);
+  margin: 0 0 0.8rem;
+  font-size: 0.86rem;
+}
+
+.social-buttons {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.social-buttons button {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.55rem;
+  cursor: pointer;
+}
+
+.login-text {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.login-text a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.card__right {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+}
+
+@property --mg0x { syntax: "<percentage>"; initial-value: 5%; inherits: false; }
+@property --mg0y { syntax: "<percentage>"; initial-value: 5%; inherits: false; }
+@property --mg1x { syntax: "<percentage>"; initial-value: 95%; inherits: false; }
+@property --mg1y { syntax: "<percentage>"; initial-value: 5%; inherits: false; }
+@property --mg2x { syntax: "<percentage>"; initial-value: 5%; inherits: false; }
+@property --mg2y { syntax: "<percentage>"; initial-value: 95%; inherits: false; }
+@property --mg3x { syntax: "<percentage>"; initial-value: 95%; inherits: false; }
+@property --mg3y { syntax: "<percentage>"; initial-value: 95%; inherits: false; }
+
+.mesh-gradient {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  will-change: transform;
+  background-color: #000000;
+  background-image:
+    radial-gradient(ellipse 130% 130% at var(--mg0x) var(--mg0y), #09bee9 0%, transparent 70%),
+    radial-gradient(ellipse 130% 130% at var(--mg1x) var(--mg1y), #4300e6 0%, transparent 70%),
+    radial-gradient(ellipse 130% 130% at var(--mg2x) var(--mg2y), #198ae9 0%, transparent 70%),
+    radial-gradient(ellipse 130% 130% at var(--mg3x) var(--mg3y), #2a51e7 0%, transparent 70%);
+  background-blend-mode: screen, screen, screen, screen;
+  animation:
+    meshGradient 4s ease-in-out alternate infinite,
+    meshDrift 7s ease-in-out infinite alternate;
+}
+
+@keyframes meshGradient {
+  0% {
+    --mg0x: 2%; --mg0y: 2%;
+    --mg1x: 98%; --mg1y: 2%;
+    --mg2x: 2%; --mg2y: 98%;
+    --mg3x: 98%; --mg3y: 98%;
+  }
+  5% {
+    --mg0x: 19%; --mg0y: 2%;
+    --mg1x: 98%; --mg1y: 19%;
+    --mg2x: 2%; --mg2y: 81%;
+    --mg3x: 81%; --mg3y: 98%;
+  }
+  10% {
+    --mg0x: 40%; --mg0y: 2%;
+    --mg1x: 98%; --mg1y: 40%;
+    --mg2x: 2%; --mg2y: 60%;
+    --mg3x: 60%; --mg3y: 98%;
+  }
+  15% {
+    --mg0x: 57%; --mg0y: 2%;
+    --mg1x: 98%; --mg1y: 57%;
+    --mg2x: 2%; --mg2y: 43%;
+    --mg3x: 43%; --mg3y: 98%;
+  }
+  20% {
+    --mg0x: 67%; --mg0y: 2%;
+    --mg1x: 98%; --mg1y: 67%;
+    --mg2x: 2%; --mg2y: 33%;
+    --mg3x: 33%; --mg3y: 98%;
+  }
+  25% {
+    --mg0x: 70%; --mg0y: 2%;
+    --mg1x: 98%; --mg1y: 70%;
+    --mg2x: 2%; --mg2y: 30%;
+    --mg3x: 30%; --mg3y: 98%;
+  }
+  30% {
+    --mg0x: 66%; --mg0y: 2%;
+    --mg1x: 98%; --mg1y: 66%;
+    --mg2x: 2%; --mg2y: 34%;
+    --mg3x: 34%; --mg3y: 98%;
+  }
+  35% {
+    --mg0x: 56%; --mg0y: 2%;
+    --mg1x: 98%; --mg1y: 56%;
+    --mg2x: 2%; --mg2y: 44%;
+    --mg3x: 44%; --mg3y: 98%;
+  }
+  40% {
+    --mg0x: 42%; --mg0y: 2%;
+    --mg1x: 98%; --mg1y: 42%;
+    --mg2x: 2%; --mg2y: 58%;
+    --mg3x: 58%; --mg3y: 98%;
+  }
+  45% {
+    --mg0x: 27%; --mg0y: 2%;
+    --mg1x: 98%; --mg1y: 27%;
+    --mg2x: 2%; --mg2y: 73%;
+    --mg3x: 73%; --mg3y: 98%;
+  }
+  50% {
+    --mg0x: 12%; --mg0y: 12%;
+    --mg1x: 88%; --mg1y: 12%;
+    --mg2x: 12%; --mg2y: 88%;
+    --mg3x: 88%; --mg3y: 88%;
+  }
+  55% {
+    --mg0x: 2%; --mg0y: 27%;
+    --mg1x: 73%; --mg1y: 2%;
+    --mg2x: 27%; --mg2y: 98%;
+    --mg3x: 98%; --mg3y: 73%;
+  }
+  60% {
+    --mg0x: 2%; --mg0y: 42%;
+    --mg1x: 58%; --mg1y: 2%;
+    --mg2x: 42%; --mg2y: 98%;
+    --mg3x: 98%; --mg3y: 58%;
+  }
+  65% {
+    --mg0x: 2%; --mg0y: 56%;
+    --mg1x: 44%; --mg1y: 2%;
+    --mg2x: 56%; --mg2y: 98%;
+    --mg3x: 98%; --mg3y: 44%;
+  }
+  70% {
+    --mg0x: 2%; --mg0y: 66%;
+    --mg1x: 34%; --mg1y: 2%;
+    --mg2x: 66%; --mg2y: 98%;
+    --mg3x: 98%; --mg3y: 34%;
+  }
+  75% {
+    --mg0x: 2%; --mg0y: 70%;
+    --mg1x: 30%; --mg1y: 2%;
+    --mg2x: 70%; --mg2y: 98%;
+    --mg3x: 98%; --mg3y: 30%;
+  }
+  80% {
+    --mg0x: 2%; --mg0y: 67%;
+    --mg1x: 33%; --mg1y: 2%;
+    --mg2x: 67%; --mg2y: 98%;
+    --mg3x: 98%; --mg3y: 33%;
+  }
+  85% {
+    --mg0x: 2%; --mg0y: 57%;
+    --mg1x: 43%; --mg1y: 2%;
+    --mg2x: 57%; --mg2y: 98%;
+    --mg3x: 98%; --mg3y: 43%;
+  }
+  90% {
+    --mg0x: 2%; --mg0y: 40%;
+    --mg1x: 60%; --mg1y: 2%;
+    --mg2x: 40%; --mg2y: 98%;
+    --mg3x: 98%; --mg3y: 60%;
+  }
+  95% {
+    --mg0x: 2%; --mg0y: 19%;
+    --mg1x: 81%; --mg1y: 2%;
+    --mg2x: 19%; --mg2y: 98%;
+    --mg3x: 98%; --mg3y: 81%;
+  }
+  100% {
+    --mg0x: 2%; --mg0y: 2%;
+    --mg1x: 98%; --mg1y: 2%;
+    --mg2x: 2%; --mg2y: 98%;
+    --mg3x: 98%; --mg3y: 98%;
+  }
+}
+
+@keyframes meshDrift {
+  0% {
+    transform: scale(1.03) translate3d(-2%, -1%, 0);
+  }
+  50% {
+    transform: scale(1.06) translate3d(2%, 2%, 0);
+  }
+  100% {
+    transform: scale(1.03) translate3d(-1%, 1%, 0);
+  }
+}
+
+.promo-text {
+  position: relative;
+  z-index: 1;
+  max-width: 310px;
+  color: #eef3ff;
+}
+
+.promo-text p {
+  margin: 0 0 0.8rem;
+  color: rgba(238, 243, 255, 0.86);
+}
+
+.promo-text h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2vw, 2.2rem);
+  line-height: 1.15;
+}
+
+@media (max-width: 900px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .card__right {
+    min-height: 280px;
+  }
+}

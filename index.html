@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card" aria-label="Sign up panel">
+        <div class="card__left">
+          <span class="brand">BrightNest</span>
+
+          <div class="heading-group">
+            <span class="accent">✶</span>
+            <h1>Create an account</h1>
+            <p>
+              Access your tasks, notes, and projects anytime, anywhere — and keep
+              everything flowing in one place.
+            </p>
+          </div>
+
+          <form class="signup-form">
+            <label for="email">Your email</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" required />
+
+            <label for="password">Create password</label>
+            <input id="password" name="password" type="password" placeholder="••••••••••••" required />
+
+            <button type="submit">Create account</button>
+          </form>
+
+          <div class="social-wrap">
+            <p>or continue with</p>
+            <div class="social-buttons">
+              <button type="button" aria-label="Sign up with Google">G</button>
+              <button type="button" aria-label="Sign up with GitHub">⌁</button>
+              <button type="button" aria-label="Sign up with Apple"></button>
+            </div>
+          </div>
+
+          <p class="login-text">Already have an account? <a href="#">Register</a></p>
+        </div>
+
+        <aside class="card__right" aria-label="Promotional gradient panel">
+          <div class="mesh-gradient" aria-hidden="true"></div>
+          <div class="promo-text">
+            <p>You can easily</p>
+            <h2>Get access your personal hub for clarity and productivity.</h2>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>
